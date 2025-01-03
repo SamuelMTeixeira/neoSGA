@@ -5,7 +5,7 @@
 
 const errorModal = new bootstrap.Modal('#error-modal');
 
-var App = {
+const App = {
     version: 0,
     module: '',
     paused: false,
