@@ -15,6 +15,7 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\MercureBundle\MercureBundle::class => ['all' => true],
     Novosga\AttendanceBundle\NovosgaAttendanceBundle::class => ['all' => true],
+    Novosga\CustomersBundle\NovosgaCustomersBundle::class => ['all' => true],
     Novosga\MonitorBundle\NovosgaMonitorBundle::class => ['all' => true],
     Novosga\ReportsBundle\NovosgaReportsBundle::class => ['all' => true],
     Novosga\SchedulingBundle\NovosgaSchedulingBundle::class => ['all' => true],

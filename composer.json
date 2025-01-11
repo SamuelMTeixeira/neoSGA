@@ -26,6 +26,7 @@
         "league/oauth2-server-bundle": "^0.9.0",
         "novosga/attendance-bundle": "2.2.x-dev",
         "novosga/core": "2.2.x-dev",
+        "novosga/customers-bundle": "2.2.x-dev",
         "novosga/monitor-bundle": "2.2.x-dev",
         "novosga/reports-bundle": "2.2.x-dev",
         "novosga/scheduling-bundle": "2.2.x-dev",
