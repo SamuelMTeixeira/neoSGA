@@ -407,6 +407,21 @@ abstract class AbstractAtendimento implements AtendimentoInterface
     /** @return array<string,mixed> */
     public function jsonSerialize(): array
     {
+        $usuario = null;
+        if ($this->getUsuario()) {
+            $usuario = [
+                'id' => $this->getUsuario()->getId(),
+                'login' => $this->getUsuario()->getLogin(),
+            ];
+        }
+        $triagem = null;
+        if ($this->getUsuarioTriagem()) {
+            $triagem = [
+                'id' => $this->getUsuarioTriagem()->getId(),
+                'login' => $this->getUsuarioTriagem()->getLogin(),
+            ];
+        }
+
         return [
             'id' => $this->getId(),
             'senha' => $this->getSenha(),
@@ -429,8 +444,8 @@ abstract class AbstractAtendimento implements AtendimentoInterface
             'status' => $this->getStatus(),
             'resolucao' => $this->getResolucao(),
             'cliente' => $this->getCliente()?->jsonSerialize(),
-            'triagem' => $this->getUsuarioTriagem()?->getLogin(),
-            'usuario' => $this->getUsuario()?->getLogin(),
+            'triagem' => $triagem,
+            'usuario' => $usuario,
         ];
     }
 
@@ -447,15 +462,15 @@ abstract class AbstractAtendimento implements AtendimentoInterface
         return $dt1->diff($dt2);
     }
 
-    public function __toString()
-    {
-        return (string) $this->getSenha();
-    }
-
     public function setSenha(Senha $senha): static
     {
         $this->senha = $senha;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getSenha();
     }
 }
