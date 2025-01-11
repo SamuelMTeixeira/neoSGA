@@ -56,7 +56,7 @@ class Cliente implements ClienteInterface
     private ?string $genero = null;
 
     #[ORM\Embedded(class: Endereco::class, columnPrefix: 'end_')]
-    private EnderecoInterface $endereco;
+    private ?EnderecoInterface $endereco = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $observacao = null;

@@ -414,6 +414,10 @@ abstract class AbstractAtendimento implements AtendimentoInterface
                 'id' => $this->getServico()->getId(),
                 'nome' => $this->getServico()->getNome(),
             ],
+            'unidade' => [
+                'id' => $this->getUnidade()->getId(),
+                'nome' => $this->getUnidade()->getNome(),
+            ],
             'observacao' => $this->getObservacao(),
             'dataChegada' => $this->getDataChegada()->format('Y-m-d\TH:i:s'),
             'dataChamada' => $this->getDataChamada()?->format('Y-m-d\TH:i:s'),
@@ -424,7 +428,7 @@ abstract class AbstractAtendimento implements AtendimentoInterface
             'prioridade' => $this->getPrioridade(),
             'status' => $this->getStatus(),
             'resolucao' => $this->getResolucao(),
-            'cliente' => $this->getCliente(),
+            'cliente' => $this->getCliente()?->jsonSerialize(),
             'triagem' => $this->getUsuarioTriagem()?->getLogin(),
             'usuario' => $this->getUsuario()?->getLogin(),
         ];
