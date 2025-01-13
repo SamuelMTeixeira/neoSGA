@@ -97,4 +97,9 @@ class AppearanceSettingsFormType extends AbstractType
             'data_class' => AppearanceSettings::class,
         ]);
     }
+
+    public function getBlockPrefix()
+    {
+        return 'app_appearance';
+    }
 }

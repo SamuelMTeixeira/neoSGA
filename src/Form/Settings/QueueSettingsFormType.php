@@ -46,4 +46,9 @@ class QueueSettingsFormType extends AbstractType
             'data_class' => QueueSettings::class,
         ]);
     }
+
+    public function getBlockPrefix()
+    {
+        return 'app_queue';
+    }
 }

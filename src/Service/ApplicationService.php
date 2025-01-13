@@ -65,9 +65,24 @@ class ApplicationService
 
     public function saveSettings(ApplicationSettings $settings): void
     {
-        $this->setMetadataValue(self::APP_APPEARANCE, $settings->appearance);
-        $this->setMetadataValue(self::APP_BEHAVIOR, $settings->behavior);
-        $this->setMetadataValue(self::APP_QUEUE, $settings->queue);
+        $this->saveAppearanceSettings($settings->appearance);
+        $this->saveBehaviorSettings($settings->behavior);
+        $this->saveQueueSettings($settings->queue);
+    }
+
+    public function saveAppearanceSettings(AppearanceSettings $settings): void
+    {
+        $this->setMetadataValue(self::APP_APPEARANCE, $settings);
+    }
+
+    public function saveBehaviorSettings(BehaviorSettings $settings): void
+    {
+        $this->setMetadataValue(self::APP_BEHAVIOR, $settings);
+    }
+
+    public function saveQueueSettings(QueueSettings $settings): void
+    {
+        $this->setMetadataValue(self::APP_QUEUE, $settings);
     }
 
     private function doLoadSettings(): ApplicationSettings

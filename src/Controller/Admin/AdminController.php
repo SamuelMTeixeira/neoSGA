@@ -13,7 +13,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-use App\Form\ApplicationSettingsFormType;
+use App\Dto\Settings\AppearanceSettings;
+use App\Dto\Settings\BehaviorSettings;
+use App\Dto\Settings\QueueSettings;
+use App\Form\Settings\AppearanceSettingsFormType;
+use App\Form\Settings\BehaviorSettingsFormType;
+use App\Form\Settings\QueueSettingsFormType;
 use App\Service\ApplicationService;
 use Novosga\Http\Envelope;
 use App\Service\AtendimentoService;
@@ -21,6 +26,7 @@ use Novosga\Entity\UsuarioInterface;
 use Novosga\Service\FileUploaderServiceInterface;
 use Psr\Clock\ClockInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,28 +47,48 @@ class AdminController extends AbstractController
         FileUploaderServiceInterface $fileUploader,
     ): Response {
         $app = $service->loadSettings();
-        $form = $this
-            ->createForm(ApplicationSettingsFormType::class, $app)
-            ->handleRequest($request);
+        $appearanceForm = $this->createAppearanceSettingsForm($request, $app->appearance);
+        $behaviorForm = $this->createBehaviorSettingsForm($request, $app->behavior);
+        $queueForm = $this->createQueueSettingsForm($request, $app->queue);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $logoNavbarFile = $form->get('appearance')->get('logoNavbar')->getData();
+        if ($appearanceForm->isSubmitted() && $appearanceForm->isValid()) {
+            $logoNavbarFile = $appearanceForm->get('logoNavbar')->getData();
             if ($logoNavbarFile instanceof UploadedFile) {
                 $app->appearance->logoNavbar = $fileUploader->upload($logoNavbarFile, 'logo-navbar');
             }
-            $logoLoginFile = $form->get('appearance')->get('logoLogin')->getData();
+            $logoLoginFile = $appearanceForm->get('logoLogin')->getData();
             if ($logoLoginFile instanceof UploadedFile) {
                 $app->appearance->logoLogin = $fileUploader->upload($logoLoginFile, 'logo-login');
             }
 
-            $service->saveSettings($app);
+            $service->saveAppearanceSettings($app->appearance);
+
+            $this->addFlash('success', 'Configuração de aparência salva com sucesso');
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        if ($behaviorForm->isSubmitted() && $behaviorForm->isValid()) {
+            $service->saveBehaviorSettings($app->behavior);
+
+            $this->addFlash('success', 'Configuração de comportamento salva com sucesso');
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        if ($queueForm->isSubmitted() && $queueForm->isValid()) {
+            $service->saveQueueSettings($app->queue);
+
+            $this->addFlash('success', 'Configuração de ordenação da fila salva com sucesso');
 
             return $this->redirectToRoute('admin_index');
         }
 
         return $this->render('admin/index.html.twig', [
             'tab' => 'index',
-            'form' => $form,
+            'appearanceForm' => $appearanceForm,
+            'behaviorForm' => $behaviorForm,
+            'queueForm' => $queueForm,
         ]);
     }
 
@@ -108,5 +134,26 @@ class AdminController extends AbstractController
         $service->limparDados($usuario, null);
 
         return $this->json($envelope);
+    }
+
+    private function createAppearanceSettingsForm(Request $request, AppearanceSettings $settings): FormInterface
+    {
+        return $this
+            ->createForm(AppearanceSettingsFormType::class, $settings)
+            ->handleRequest($request);
+    }
+
+    private function createBehaviorSettingsForm(Request $request, BehaviorSettings $settings): FormInterface
+    {
+        return $this
+            ->createForm(BehaviorSettingsFormType::class, $settings)
+            ->handleRequest($request);
+    }
+
+    private function createQueueSettingsForm(Request $request, QueueSettings $settings): FormInterface
+    {
+        return $this
+            ->createForm(QueueSettingsFormType::class, $settings)
+            ->handleRequest($request);
     }
 }

@@ -63,4 +63,9 @@ class BehaviorSettingsFormType extends AbstractType
             'data_class' => BehaviorSettings::class,
         ]);
     }
+
+    public function getBlockPrefix()
+    {
+        return 'app_behavior';
+    }
 }
