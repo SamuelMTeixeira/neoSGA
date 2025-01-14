@@ -2,8 +2,6 @@
  * Novo SGA - Admin
  * @author Rogerio Lino <rogeriolino@gmail.com>
  */
-var App = App || {};
-
 App.Admin = {
     reiniciarSenhas(alert) {
         if (confirm(alert)) {
