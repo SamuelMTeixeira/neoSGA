@@ -8,9 +8,9 @@
         </div>
     </div>
 
-    {{ form_start(form) }}
-    
-        {% include 'flashMessages.html.twig' %}
+    {% include 'flashMessages.html.twig' %}
+
+    {{ form_start(form) }}    
         
         {{ form_row(form.ativo) }}
 
@@ -28,7 +28,7 @@
                 {{ 'button.back'|trans }}
             </a>
             {% if entity.id %}
-                <button type="submit" class="btn btn-danger ms-auto" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger ms-auto" form="delete-form">
                     <i class="fa fa-trash"></i> 
                     {{ 'button.remove'|trans }}
                 </button>
@@ -36,4 +36,13 @@
         </div>
 
     {{ form_end(form) }}
+
+    {% if entity.id %}
+        <form
+            id="delete-form"
+            method="post"
+            action="{{ path('admin_unidades_delete', { id: entity.id }) }}"
+            onsubmit="return confirm('Você realmente deseja remover?')">
+        </form>
+    {% endif %}
 {% endblock %}

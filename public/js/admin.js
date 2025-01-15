@@ -29,8 +29,3 @@ App.Admin = {
     },
 };
 
-[...document.querySelectorAll('[type=submit][value=DELETE]')].forEach((e) => {
-    e.addEventListener('click', () => {
-        return confirm('Você realmente deseja remover?');
-    })
-});

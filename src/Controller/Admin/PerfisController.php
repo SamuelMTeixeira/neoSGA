@@ -55,7 +55,7 @@ class PerfisController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    #[Route('/{id}', name: 'edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function form(
         Request $request,
         TranslatorInterface $translator,
@@ -92,7 +92,7 @@ class PerfisController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
+    #[Route('/{id}/delete', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, TranslatorInterface $translator, Perfil $perfil): Response
     {
         try {
