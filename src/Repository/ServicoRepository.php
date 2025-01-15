@@ -16,7 +16,9 @@ namespace App\Repository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Servico;
+use App\Entity\ServicoUnidade;
 use Novosga\Entity\ServicoInterface;
+use Novosga\Entity\UnidadeInterface;
 use Novosga\Repository\ServicoRepositoryInterface;
 
 /**
@@ -34,6 +36,23 @@ class ServicoRepository extends ServiceEntityRepository implements ServicoReposi
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Servico::class);
+    }
+
+    /** {@inheritdoc} */
+    public function getServicosAtivosUnidade(UnidadeInterface $unidade): array
+    {
+        $servicos = $this
+            ->createQueryBuilder('e')
+            ->join(ServicoUnidade::class, 'su', 'WITH', 'su.servico = e')
+            ->where('e.ativo = TRUE')
+            ->andWhere('su.ativo = TRUE')
+            ->andWhere('su.unidade = :unidade')
+            ->orderBy('e.nome', 'ASC')
+            ->setParameter('unidade', $unidade)
+            ->getQuery()
+            ->getResult();
+
+        return $servicos;
     }
 
     /** {@inheritdoc} */

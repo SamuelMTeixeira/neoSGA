@@ -17,7 +17,6 @@ use DateTime;
 use Exception;
 use App\Entity\Atendimento;
 use App\Entity\AtendimentoCodificado;
-use App\Entity\AtendimentoMeta;
 use App\Entity\Lotacao;
 use App\Entity\PainelSenha;
 use App\Entity\Prioridade;
@@ -125,7 +124,7 @@ class AtendimentoService implements AtendimentoServiceInterface
         return $arr[$status] ?? '';
     }
 
-    /** @return ?AtendimentoMeta */
+    /** @return ?EntityMetadataInterface<AtendimentoInterface> */
     public function meta(AtendimentoInterface $atendimento, string $name, mixed $value = null): ?EntityMetadataInterface
     {
         if ($value === null) {

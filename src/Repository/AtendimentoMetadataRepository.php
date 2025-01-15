@@ -15,14 +15,16 @@ namespace App\Repository;
 
 use App\Entity\AtendimentoMeta;
 use Doctrine\Persistence\ManagerRegistry;
+use Novosga\Entity\EntityMetadataInterface;
 use Novosga\Entity\AtendimentoInterface;
+use Novosga\Repository\AtendimentoMetadataRepositoryInterface;
 
 /**
- * @extends EntityMetadataRepository<AtendimentoMeta,AtendimentoInterface>
+ * @extends EntityMetadataRepository<EntityMetadataInterface<AtendimentoInterface>,AtendimentoInterface>
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
-class AtendimentoMetadataRepository extends EntityMetadataRepository
+class AtendimentoMetadataRepository extends EntityMetadataRepository implements AtendimentoMetadataRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {

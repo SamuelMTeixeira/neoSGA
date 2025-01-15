@@ -2065,12 +2065,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/novosga/core.git",
-                "reference": "9f03a91affa0a01368654748ae58f769c7f3806a"
+                "reference": "3fc06704f15f922fa563c8b7e3ac2d81f1afbb53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novosga/core/zipball/9f03a91affa0a01368654748ae58f769c7f3806a",
-                "reference": "9f03a91affa0a01368654748ae58f769c7f3806a",
+                "url": "https://api.github.com/repos/novosga/core/zipball/3fc06704f15f922fa563c8b7e3ac2d81f1afbb53",
+                "reference": "3fc06704f15f922fa563c8b7e3ac2d81f1afbb53",
                 "shasum": ""
             },
             "require": {
@@ -2107,7 +2107,7 @@
                 "issues": "https://github.com/novosga/core/issues",
                 "source": "https://github.com/novosga/core/tree/v2.2"
             },
-            "time": "2024-12-25T13:30:58+00:00"
+            "time": "2025-01-14T21:17:27+00:00"
         },
         {
             "name": "novosga/customers-bundle",
@@ -2264,12 +2264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/novosga/scheduling-bundle.git",
-                "reference": "cc11c0454b133df761ff1546f999ba44afd5861f"
+                "reference": "0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novosga/scheduling-bundle/zipball/cc11c0454b133df761ff1546f999ba44afd5861f",
-                "reference": "cc11c0454b133df761ff1546f999ba44afd5861f",
+                "url": "https://api.github.com/repos/novosga/scheduling-bundle/zipball/0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84",
+                "reference": "0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84",
                 "shasum": ""
             },
             "require": {
@@ -2279,7 +2279,11 @@
                 "pagerfanta/pagerfanta": "^4.6",
                 "php": ">=8.2",
                 "symfony/form": "7.1.*",
-                "symfony/framework-bundle": "7.1.*"
+                "symfony/framework-bundle": "7.1.*",
+                "symfony/http-client": "7.1.*",
+                "symfony/security-bundle": "7.1.*",
+                "symfony/security-core": "7.1.*",
+                "symfony/validator": "7.1.*"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
@@ -2306,7 +2310,7 @@
                 "issues": "https://github.com/novosga/scheduling-bundle/issues",
                 "source": "https://github.com/novosga/scheduling-bundle/tree/v2.2"
             },
-            "time": "2024-11-12T21:21:08+00:00"
+            "time": "2025-01-15T18:31:28+00:00"
         },
         {
             "name": "novosga/settings-bundle",

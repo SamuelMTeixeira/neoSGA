@@ -15,14 +15,16 @@ namespace App\Repository;
 
 use App\Entity\UsuarioMeta;
 use Doctrine\Persistence\ManagerRegistry;
+use Novosga\Entity\EntityMetadataInterface;
 use Novosga\Entity\UsuarioInterface;
+use Novosga\Repository\UsuarioMetadataRepositoryInterface;
 
 /**
- * @extends EntityMetadataRepository<UsuarioMeta,UsuarioInterface>
+ * @extends EntityMetadataRepository<EntityMetadataInterface<UsuarioInterface>,UsuarioInterface>
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
-class UsuarioMetadataRepository extends EntityMetadataRepository
+class UsuarioMetadataRepository extends EntityMetadataRepository implements UsuarioMetadataRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {

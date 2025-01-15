@@ -15,14 +15,16 @@ namespace App\Repository;
 
 use App\Entity\ServicoMeta;
 use Doctrine\Persistence\ManagerRegistry;
+use Novosga\Entity\EntityMetadataInterface;
 use Novosga\Entity\ServicoInterface;
+use Novosga\Repository\ServicoMetadataRepositoryInterface;
 
 /**
- * @extends EntityMetadataRepository<ServicoMeta,ServicoInterface>
+ * @extends EntityMetadataRepository<EntityMetadataInterface<ServicoInterface>,ServicoInterface>
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
-class ServicoMetadataRepository extends EntityMetadataRepository
+class ServicoMetadataRepository extends EntityMetadataRepository implements ServicoMetadataRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
