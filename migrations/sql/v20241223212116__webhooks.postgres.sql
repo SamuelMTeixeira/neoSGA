@@ -1,10 +1,8 @@
 DO $body$
 BEGIN
 
-CREATE SEQUENCE webhooks_id_seq START 1;
-
 CREATE TABLE webhooks (
-    id INT NOT NULL,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(80) NOT NULL,
     url VARCHAR(255) NOT NULL,
     headers JSON NOT NULL,
