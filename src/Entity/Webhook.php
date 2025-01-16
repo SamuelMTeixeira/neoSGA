@@ -35,7 +35,7 @@ class Webhook implements TimestampableEntityInterface
     #[ORM\Id]
     #[ORM\Column]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
-    #[ORM\SequenceGenerator(sequenceName: "webhook_id_seq", allocationSize: 1, initialValue: 1)]
+    #[ORM\SequenceGenerator(sequenceName: "webhooks_id_seq", allocationSize: 1, initialValue: 1)]
     private ?int $id = null;
 
     #[ORM\Column(length: 80)]
