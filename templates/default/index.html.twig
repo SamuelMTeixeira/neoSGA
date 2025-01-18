@@ -17,7 +17,7 @@
         <div class="quick-menu py-5">
             <div class="row">
                 {% for module in modules %}
-                    {% if app.user.admin or is_granted(module.roleName) %}
+                    {% if is_granted('view', module) %}
                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                             <div class="card mb-4">
                                 <div class="card-body text-center">

@@ -2414,12 +2414,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/novosga/users-bundle.git",
-                "reference": "a90eeebac5fa3073617526b1298ecb43548b8a59"
+                "reference": "6777b5d08b4e84ebbe77afa43cc89836785f347f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novosga/users-bundle/zipball/a90eeebac5fa3073617526b1298ecb43548b8a59",
-                "reference": "a90eeebac5fa3073617526b1298ecb43548b8a59",
+                "url": "https://api.github.com/repos/novosga/users-bundle/zipball/6777b5d08b4e84ebbe77afa43cc89836785f347f",
+                "reference": "6777b5d08b4e84ebbe77afa43cc89836785f347f",
                 "shasum": ""
             },
             "require": {
@@ -2457,7 +2457,7 @@
                 "issues": "https://github.com/novosga/users-bundle/issues",
                 "source": "https://github.com/novosga/users-bundle/tree/v2.2"
             },
-            "time": "2024-11-08T13:03:32+00:00"
+            "time": "2025-01-18T13:52:09+00:00"
         },
         {
             "name": "nyholm/psr7",

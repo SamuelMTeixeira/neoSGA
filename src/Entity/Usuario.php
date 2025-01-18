@@ -24,6 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 use Novosga\Entity\LotacaoInterface;
 use Novosga\Entity\UsuarioInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -40,6 +41,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
     UsuarioListener::class,
 ])]
 #[ORM\Table(name: 'usuarios')]
+#[UniqueEntity(fields: 'login')]
 class Usuario implements
     UsuarioInterface,
     TimestampableEntityInterface,
