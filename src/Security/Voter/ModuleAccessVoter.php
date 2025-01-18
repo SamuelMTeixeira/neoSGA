@@ -31,7 +31,6 @@ final class ModuleAccessVoter extends Voter
 
     protected function supports(string $attribute, mixed $subject): bool
     {
-        dump($attribute, $subject);
         return in_array($attribute, [self::VIEW]) && $subject instanceof InstalledModule;
     }
 
