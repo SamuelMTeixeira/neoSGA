@@ -2264,12 +2264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/novosga/scheduling-bundle.git",
-                "reference": "0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84"
+                "reference": "788db9eeec2bea848c437066788233be08b8a43e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novosga/scheduling-bundle/zipball/0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84",
-                "reference": "0b8b4430f7fc24c6e2dbaf7164894a5a63de8e84",
+                "url": "https://api.github.com/repos/novosga/scheduling-bundle/zipball/788db9eeec2bea848c437066788233be08b8a43e",
+                "reference": "788db9eeec2bea848c437066788233be08b8a43e",
                 "shasum": ""
             },
             "require": {
@@ -2310,7 +2310,7 @@
                 "issues": "https://github.com/novosga/scheduling-bundle/issues",
                 "source": "https://github.com/novosga/scheduling-bundle/tree/v2.2"
             },
-            "time": "2025-01-15T18:31:28+00:00"
+            "time": "2025-01-18T23:41:10+00:00"
         },
         {
             "name": "novosga/settings-bundle",
