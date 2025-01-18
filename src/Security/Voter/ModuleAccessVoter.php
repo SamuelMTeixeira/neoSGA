@@ -1,5 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the Novo SGA project.
+ *
+ * (c) Rogerio Lino <rogeriolino@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Security\Voter;
 
 use App\Entity\Usuario;
@@ -8,6 +19,12 @@ use Novosga\Dto\InstalledModule;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
+/**
+ * ModuleAccessVoter
+ * @extends Voter<string,InstalledModule>
+ *
+ * @author Rogerio Lino <rogeriolino@gmail.com>
+ */
 final class ModuleAccessVoter extends Voter
 {
     private const VIEW = 'view';
