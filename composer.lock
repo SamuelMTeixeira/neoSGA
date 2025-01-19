@@ -2016,12 +2016,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/novosga/attendance-bundle.git",
-                "reference": "dc6640d824cb124e41dcf848cc32b6f63b456ae8"
+                "reference": "21120b5a2cbfafa6522c76eb787259c3eab8de01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novosga/attendance-bundle/zipball/dc6640d824cb124e41dcf848cc32b6f63b456ae8",
-                "reference": "dc6640d824cb124e41dcf848cc32b6f63b456ae8",
+                "url": "https://api.github.com/repos/novosga/attendance-bundle/zipball/21120b5a2cbfafa6522c76eb787259c3eab8de01",
+                "reference": "21120b5a2cbfafa6522c76eb787259c3eab8de01",
                 "shasum": ""
             },
             "require": {
@@ -2057,7 +2057,7 @@
                 "issues": "https://github.com/novosga/attendance-bundle/issues",
                 "source": "https://github.com/novosga/attendance-bundle/tree/v2.2"
             },
-            "time": "2025-01-19T01:00:37+00:00"
+            "time": "2025-01-19T01:14:08+00:00"
         },
         {
             "name": "novosga/core",
