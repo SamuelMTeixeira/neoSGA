@@ -9,8 +9,7 @@ CREATE TABLE webhooks (
     events JSON NOT NULL,
     enabled BOOLEAN NOT NULL,
     created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP DEFAULT NULL,
-    PRIMARY KEY (id)
+    updated_at TIMESTAMP DEFAULT NULL
 );
 
 END $body$;
